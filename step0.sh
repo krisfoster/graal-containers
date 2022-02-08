@@ -10,7 +10,7 @@ JAR_FILE=demo-0.0.1-SNAPSHOT-exec.jar
 echo "Container : ${CONTAINER}"
 
 echo "Building Java..."
-mvn package -DskipTests
+mvn package -DskipTests | grep -v "Warning: Could not register complete reflection metadata"
 echo "DONE"
 
 echo "Dockerizing our app.."
