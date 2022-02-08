@@ -16,17 +16,17 @@ for i in `seq 16`;
     sleep 1s;
 done
 echo -ne " DONE"
-echo
 
 JDK_LAT=`cat JDK_95.txt | sed 's/95% in //' | sed 's/ secs//' | awk '{printf "%d", $1*1000}'`
 NI_LAT=`cat NI_95.txt | sed 's/95% in //' | sed 's/ secs//' | awk '{printf "%d", $1*1000}'`
 
 echo "JDK-Container ${JDK_LAT}
     NI-Container  ${NI_LAT}" \
-    | termgraph --title "Latency of 99% of Requests" --width 60 --color {green,} --suffix " ms"
-echo
+    | termgraph --title "Latency of 95% of Requests" --width 60 --color {green,} --suffix " ms"
+
+JDK_REQS=`cat JDK_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]][0-9]+.[0-9]+' | awk '{print $2}'`
+NI_REQS=`cat NI_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]][0-9]+.[0-9]+' | awk '{print $2}'`
 
 echo "JDK-Container ${JDK_REQS}
     NI-Container  ${NI_REQS}" \
     | termgraph --title "Requests  / sec" --width 60 --color {green,} --suffix " ms"
-echo
