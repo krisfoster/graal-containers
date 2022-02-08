@@ -57,6 +57,22 @@ services:
       - "prom"
     ports:
       - "8083:8080"
+  jibber-nidistroless:
+    image: localhost/jibber:distroless.0.1
+#    restart: never
+    mem_limit: 128m
+    memswap_limit: 128m
+    cpu_count: 4
+    cpu_percent: 100
+    cpus: 4
+    container_name: jibber-nidistroless
+    command:
+      - '-Xms64m'
+      - '-Xmx64m'
+    depends_on:
+      - "prom"
+    ports:
+      - "8084:8080"
 
   # Reporting & Metrics
 

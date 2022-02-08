@@ -43,6 +43,13 @@ scrape_configs:
       - targets: ['jibber-nig1:8080']
         labels: 
           container: 'NIG1'
+  - job_name: jibber-nidistroless
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 1s
+    static_configs:
+      - targets: ['jibber-nidistroless:8080']
+        labels: 
+          container: 'NIG1-Distroless'
   - job_name: 'cadvisor'
     scrape_interval: 1s
     static_configs:
