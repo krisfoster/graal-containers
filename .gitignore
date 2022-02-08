@@ -2,6 +2,7 @@ target
 
 # Compiled class file
 *.class
+target
 
 # Log file
 *.log
@@ -26,3 +27,4 @@ hs_err_pid*
 
 # Exclude data files
 *_99.txt
+*_95.txt
