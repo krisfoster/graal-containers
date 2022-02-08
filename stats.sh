@@ -10,7 +10,7 @@ tput clear
 ./startups.sh
 
 # Stress test
-for i in `seq 3`;
+for i in `seq 2`;
     do ./stress.sh;
 done
 
