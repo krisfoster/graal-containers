@@ -73,7 +73,24 @@ services:
       - "prom"
     ports:
       - "8084:8080"
-
+  jibber-jlink:
+    image: localhost/jibber:jlink.0.1
+#    restart: always
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpu_count: 4
+    cpu_percent: 100
+    cpus: 4
+    container_name: jibber-jlink
+    command:
+      - "-jar"
+      - "app.jar"
+      - '-Xms64m'
+      - '-Xmx64m'
+    depends_on:
+      - "prom"
+    ports:
+      - "8085:8080"
   # Reporting & Metrics
 
   ## Prometheus
