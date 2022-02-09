@@ -1,0 +1,13 @@
+FROM container-registry.oracle.com/os/oraclelinux:8-slim
+
+ARG JAR_FILE
+
+EXPOSE 8080
+
+COPY target/min-jre/ /jre/
+COPY target/${JAR_FILE} app.jar
+
+ENV PATH=/jre/bin:$PATH
+
+ENTRYPOINT ["java"]
+CMD ["-jar","app.jar"]
