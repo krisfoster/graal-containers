@@ -5,7 +5,7 @@ APP=jibber
 TYPE=jdk
 VER=0.1
 CONTAINER=${REPO}/${APP}:${TYPE}.${VER}
-JAR_FILE=demo-0.0.1-SNAPSHOT-exec.jar
+JAR_FILE=jibber-0.0.1-SNAPSHOT-exec.jar
 
 echo "Container : ${CONTAINER}"
 
