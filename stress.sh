@@ -27,12 +27,12 @@ JDK_REQS=`cat JDK_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]][0-
 NI_REQS=`cat NI_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]][0-9]+.[0-9]+' | awk '{print $2}'`
 NI_G1_REQS=`cat NI_G1_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]][0-9]+.[0-9]+' | awk '{print $2}'`
 
-echo "JDK-Container ${JDK_LAT}
-    NI-Container  ${NI_LAT}
-    NI-G1-Container ${NI_G1_LAT}" \
+echo "NI-Container  ${NI_LAT}
+    NI-G1-Container ${NI_G1_LAT}
+    JDK-Container ${JDK_LAT}" \
     | termgraph --title "Latency of 95% of Requests" --width 60 --color {green,} --suffix " ms"
 
-echo "JDK-Container ${JDK_REQS}
-    NI-Container  ${NI_REQS}
-    NI-G1-Container ${NI_G1_REQS}" \
-    | termgraph --title "Requests  / sec" --width 60 --color {green,} --suffix " ms"
+echo "NI-Container  ${NI_REQS}
+    NI-G1-Container ${NI_G1_REQS}
+    JDK-Container ${JDK_REQS}" \
+    | termgraph --title "Requests  / second" --width 60 --color {green,} --suffix " req / s"
