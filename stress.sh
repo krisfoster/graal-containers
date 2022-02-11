@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
 # Create my files for storing the stats in
 rm -f JDK_95.txt JDK_ALL_95.txt
 touch JDK_95.txt JDK_ALL_95.txt
@@ -18,7 +21,12 @@ echo -ne " DONE"
 echo
 
 JDK_LAT=`cat JDK_95.txt | sed 's/95% in //' | sed 's/ secs//' | awk '{printf "%d", $1*1000}'`
+JDK_REQS=`cat JDK_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]][0-9]+.[0-9]+' | awk '{print $2}'`
 
 echo "JDK-Container ${JDK_LAT}" \
     | termgraph --title "Latency of 95% of Requests" --width 60 --color {green,} --suffix " ms"
+echo
+
+echo "# Requests / second"
+echo -e "JDK-Container  ${GREEN}${JDK_REQS}${NC} req / s"
 echo
