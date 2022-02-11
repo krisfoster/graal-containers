@@ -15,6 +15,6 @@ NATIVEDISTROLESS_START=$(echo "${NATIVEDISTROLESS_START}" | awk '{printf "%d", $
 # Display as a chart
 echo "NI-Container ${NATIVE_START}
     NI-G1-Container ${NATIVEG1_START}
-    Native-Distroless-Cont. ${NATIVEDISTROLESS_START}
+    NI-Distroless-Cont. ${NATIVEDISTROLESS_START}
     JDK-Container ${JDK_START}" \
     | termgraph --title "App Start Time" --width 60  --color {green,} --suffix " ms"
