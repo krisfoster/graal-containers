@@ -91,6 +91,23 @@ services:
       - "prom"
     ports:
       - "8085:8080"
+  jibber-pgo:
+    image: localhost/jibber:pgo.0.1
+#    restart: never
+    mem_limit: 128m
+    memswap_limit: 128m
+    cpu_count: 4
+    cpu_percent: 100
+    cpus: 4
+    container_name: jibber-pgo
+    command:
+      - '-Xms64m'
+      - '-Xmx64m'
+    depends_on:
+      - "prom"
+    ports:
+      - "8086:8080"
+
   # Reporting & Metrics
 
   ## Prometheus
