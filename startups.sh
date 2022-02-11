@@ -9,6 +9,6 @@ JDK_START=$(echo "${JDK_START}" | awk '{printf "%d", $1*1000}')
 NATIVE_START=$(echo "${NATIVE_START}" | awk '{printf "%d", $1*1000}')
 
 # Display as a chart
-echo "JDK-Container ${JDK_START}
-    NI-Container ${NATIVE_START}" \
-    | termgraph --title "App Start Time" --width 60  --color {green,} --suffix " s"
+echo "NI-Container ${NATIVE_START}
+        JDK-Container ${JDK_START}" \
+    | termgraph --title "App Start Time" --width 60  --color {green,} --suffix " ms"

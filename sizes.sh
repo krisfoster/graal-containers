@@ -9,7 +9,7 @@ NATIVE_IMG_SIZE=`docker inspect -f "{{ .Size }}" localhost/jibber:native.0.1 | n
 # Chart of the image sizes
 echo "JAR ${JAR_SIZE}
     Native-Exe ${NATIVE_SIZE}
-    JDK-Container ${JDK_IMG_SIZE}
-    NI-Container ${NATIVE_IMG_SIZE}" \
+    NI-Container ${NATIVE_IMG_SIZE}
+    JDK-Container ${JDK_IMG_SIZE}" \
     | termgraph --title "Container Size" --width 60 --color {green,} --suffix " MB"
 
