@@ -15,9 +15,9 @@ NATIVEDISTROLESS_START=$(echo "${NATIVEDISTROLESS_START}" | awk '{printf "%d", $
 JLINK_START=$(echo "${JLINK_START}" | awk '{printf "%d", $1*1000}')
 
 # Display as a chart
-echo "JDK-Container ${JDK_START}
-    NI-Container ${NATIVE_START}
+echo "NI-Container ${NATIVE_START}
     NI-G1-Container ${NATIVEG1_START}
-    Distroless-Container ${NATIVEDISTROLESS_START}
+    NI-Distroless-Cont. ${NATIVEDISTROLESS_START}
+    JDK-Container ${JDK_START}
     JLink-Container ${JLINK_START}" \
     | termgraph --title "App Start Time" --width 60  --color {green,} --suffix " ms"

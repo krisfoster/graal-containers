@@ -14,7 +14,7 @@ JLINK_IMG_SIZE=`docker inspect -f "{{ .Size }}" localhost/jibber:jlink.0.1 | num
 echo "JAR ${JAR_SIZE}
     Native-Exe ${NATIVE_SIZE}
     Native-G1-Exe ${NATIVE_G1_SIZE}
-    Native-Distroless-Cont. ${NATIVEDISTROLESS_IMG_SIZE}
+    NI-Distroless-Cont. ${NATIVEDISTROLESS_IMG_SIZE}
     NI-Container ${NATIVE_IMG_SIZE}
     NI-G1-Container ${NATIVEG1_IMG_SIZE}
     JDK-Container ${JDK_IMG_SIZE}
