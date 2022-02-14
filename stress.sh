@@ -35,15 +35,15 @@ JLINK_REQS=`cat JLINK_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]
 NI_PGO_REQS=`cat NI_PGO_ALL_95.txt | grep -Eo '[[:space:]]+Requests/sec:[[:space:]][0-9]+.[0-9]+' | awk '{print $2}'`
 
 echo "NI-Container  ${NI_LAT}
-    NI-G1-Container ${NI_G1_LAT}
-    JDK-Container ${JDK_LAT}
     JLink-Container ${JLINK_LAT}
+    JDK-Container ${JDK_LAT}
+    NI-G1-Container ${NI_G1_LAT}    
     NI-PGO-G1-Container ${NI_PGO_LAT}" \
     | termgraph --title "Latency of 95% of Requests" --width 60 --color {green,} --suffix " ms"
 
 echo "NI-Container  ${NI_REQS}
-    NI-G1-Container ${NI_G1_REQS}
-    JDK-Container ${JDK_REQS}
     JLink-Container ${JLINK_REQS}
+    JDK-Container ${JDK_REQS}
+    NI-G1-Container ${NI_G1_REQS}
     NI-PGO-G1-Container ${NI_PGO_REQS}" \
     | termgraph --title "Requests  / seconds" --width 60 --color {green,} --suffix " req / s"
